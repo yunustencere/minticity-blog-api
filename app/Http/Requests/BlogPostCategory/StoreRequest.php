@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Task;
+namespace App\Http\Requests\BlogPostCategory;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -16,9 +17,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => ['required', 'numeric', 'exists:tasks,id'],
-            'prerequisites' => ['present', 'array'],
-            'prerequisites.*' => ['sometimes', 'numeric', 'exists:tasks,id', 'different:id'],
+            'name' => ['required', 'string', 'max:20'],
         ];
     }
 

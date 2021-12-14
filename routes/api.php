@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\BlogPostCategoryController;
+use App\Http\Controllers\BlogPostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,16 +20,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//REAL ESTATE ROUTES
-Route::group(['prefix' => 'task'], function () {
-    Route::get('/', [TaskController::class, 'index']);
+Route::group(['prefix' => 'blog-post'], function () {
+    Route::get('/', [BlogPostController::class, 'index']);
     // Route::get('/{id}', [TaskController::class, 'show']);
-    Route::post('/', [TaskController::class, 'store']);
-    Route::put('/', [TaskController::class, 'update']);
+    Route::post('/', [BlogPostController::class, 'store']);
+    // Route::put('/', [TaskController::class, 'update']);
 
-    Route::get('/getByOrder', [TaskController::class, 'getByOrder']);
+    // Route::get('/getByOrder', [TaskController::class, 'getByOrder']);
 
 
     // Route::put('/{id}', 'Task\TaskController@update');
     // Route::delete('/{id}', 'Task\TaskController@destroy');
+});
+
+Route::group(['prefix' => 'blog-post-category'], function () {
+    Route::get('/', [BlogPostCategoryController::class, 'index']);
+    Route::post('/', [BlogPostCategoryController::class, 'store']);
 });

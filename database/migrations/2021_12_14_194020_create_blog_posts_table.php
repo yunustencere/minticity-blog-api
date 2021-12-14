@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\BlogPostCategory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTasksTable extends Migration
+class CreateBlogPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +14,11 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
             $table->string('title', 30);
-            $table->string('type', 30);
-            $table->string('country', 30)->nullable();
-            $table->json('amount')->nullable();
-            $table->json('prerequisites')->nullable()->default('[]');
+            $table->text('text');
+            $table->foreignIdFor(BlogPostCategory::class);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('blog_post');
     }
 }
