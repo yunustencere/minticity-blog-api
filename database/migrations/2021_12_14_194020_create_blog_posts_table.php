@@ -19,6 +19,7 @@ class CreateBlogPostsTable extends Migration
             $table->string('title', 30);
             $table->text('text');
             $table->foreignIdFor(BlogPostCategory::class);
+            $table->string('image_url', 200);
             $table->timestamps();
         });
     }

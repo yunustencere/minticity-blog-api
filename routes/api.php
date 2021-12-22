@@ -36,4 +36,6 @@ Route::group(['prefix' => 'blog-post'], function () {
 Route::group(['prefix' => 'blog-post-category'], function () {
     Route::get('/', [BlogPostCategoryController::class, 'index']);
     Route::post('/', [BlogPostCategoryController::class, 'store']);
+    Route::put('/', [BlogPostCategoryController::class, 'update']);
+    Route::delete('/', [BlogPostCategoryController::class, 'destroy']);
 });

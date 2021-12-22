@@ -2,6 +2,7 @@
 
 namespace App\Services\BlogPost;
 
+use App\Helpers\UploadHelper;
 use App\Models\BlogPost;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
@@ -15,14 +16,10 @@ class BlogPostService implements BlogPostServiceInterface
 
   public function store(array $attributes)
   {
-    return BlogPost::create($attributes);
+    $fullUrl = UploadHelper::uploadFile($attributes['file'], '/blog-post-images');
+    error_log("test");
+    error_log($fullUrl);
+    return BlogPost::create(array_merge($attributes, ['image_url' => $fullUrl]));
   }
 
-
-  private function throw(string $message)
-  {
-    throw new HttpResponseException(response()->json([
-      'errors' => $message
-    ], 422));
-  }
 }
