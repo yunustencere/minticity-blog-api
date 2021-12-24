@@ -26,7 +26,7 @@ class BlogPostController extends Controller
         try {
             $blogPosts = $this->service->get_all();
             $blogPostCategories = $this->blog_post_category_service->get_all();
-            return response()->json(['result' => 'success', 'blog_posts' => $blogPosts, 'blog_post_categories' => $blogPostCategories], 201);
+            return response()->json(['result' => 'success', 'blog_posts' => $blogPosts, 'blog_post_categories' => $blogPostCategories], 200);
         } catch (Throwable $th) {
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
@@ -35,8 +35,8 @@ class BlogPostController extends Controller
     public function store(StoreRequest $request)
     {
         try {
-            $blogPosts = $this->service->store($request->validated());
-            return response()->json(['result' => 'success', 'blog_posts' => $blogPosts], 201);
+            $blogPost = $this->service->store($request->validated());
+            return response()->json(['result' => 'success', 'blog_post' => $blogPost], 201);
         } catch (Throwable $th) {
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }

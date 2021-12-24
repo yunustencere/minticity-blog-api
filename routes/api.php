@@ -22,15 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'blog-post'], function () {
     Route::get('/', [BlogPostController::class, 'index']);
-    // Route::get('/{id}', [TaskController::class, 'show']);
     Route::post('/', [BlogPostController::class, 'store']);
-    // Route::put('/', [TaskController::class, 'update']);
-
-    // Route::get('/getByOrder', [TaskController::class, 'getByOrder']);
-
-
-    // Route::put('/{id}', 'Task\TaskController@update');
-    // Route::delete('/{id}', 'Task\TaskController@destroy');
 });
 
 Route::group(['prefix' => 'blog-post-category'], function () {
