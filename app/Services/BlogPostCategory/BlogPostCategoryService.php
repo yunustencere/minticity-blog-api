@@ -27,6 +27,8 @@ class BlogPostCategoryService implements BlogPostCategoryServiceInterface
 
     public function destroy(int $id)
     {
-        BlogPostCategory::find($id)->delete();
+        $blogPostCategory = BlogPostCategory::find($id);
+        $blogPostCategory->blog_posts()->update(['blog_post_category_id' => null]);
+        $blogPostCategory->delete();
     }
 }

@@ -18,7 +18,7 @@ class CreateBlogPostsTable extends Migration
             $table->id();
             $table->string('title', 30);
             $table->text('text');
-            $table->foreignIdFor(BlogPostCategory::class);
+            $table->foreignIdFor(BlogPostCategory::class)->nullable();
             $table->string('image_url', 200)->nullable();
             $table->timestamps();
         });

@@ -18,9 +18,9 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:100'],
-            'file' => ['nullable', 'image', 'max:2048'], //2mb
             'text' => ['required', 'string', 'max:100000'],
-            'blog_post_category_id' => ['required', 'numeric', 'exists:blog_post_categories,id']
+            'file' => ['nullable', 'image', 'max:2048'], //2mb
+            'blog_post_category_id' => ['nullable', 'numeric', 'exists:blog_post_categories,id']
         ];
     }
 
