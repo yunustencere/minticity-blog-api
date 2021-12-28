@@ -29,10 +29,6 @@ class BlogPostCategoryController extends Controller
         }
     }
 
-    public function show()
-    {
-    }
-
     public function store(StoreRequest $request)
     {
         try {
@@ -47,7 +43,7 @@ class BlogPostCategoryController extends Controller
     {
         try {
             $blogPostCategory = $this->service->update($request->validated());
-            return response()->json(['result' => 'success', 'blog_posts_category' => $blogPostCategory], 201);
+            return response()->json(['result' => 'success', 'blog_post_category' => $blogPostCategory], 201);
         } catch (Throwable $th) {
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }

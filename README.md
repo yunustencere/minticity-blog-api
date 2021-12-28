@@ -1,5 +1,5 @@
 ## Task Order Api
-The app is simple laravel api uses some of its features like model, controller, service layer, validation by form requests, database seeding.
+The app is simple laravel blog api(frontend is available on https://github.com/yunustencere/minticity-blog-frontend) uses some of its features like model, controller, service layer, validation by form requests
 
 ### Installation
 Clone the project
@@ -23,7 +23,7 @@ You should run
 ```
 $ php artisan migrate
 ```
-to create database table
+to create database tables.
 
 optional
 ```
@@ -33,16 +33,16 @@ to seed the database with related entries.
 
 ### To Run The App
 
-
 ```
 $ php artisan serve
 ```
 
 ### Endpoints
 
-postman collection is available at the root directory of the project as 
-"forwardie_yunus.postman_collection.json"
+postman collection is available at the root directory of the project as "laravel_blog_api_yunus.postman_collection.json"
 
-or check api.php
+or 
+
+check api.php
 
 
